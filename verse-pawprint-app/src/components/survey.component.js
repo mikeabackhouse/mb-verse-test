@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios'
 
 export default class Survey extends Component {
     
@@ -12,6 +13,7 @@ export default class Survey extends Component {
         this.onSelectOption = this.onSelectOption.bind(this);
         
         this.state = {
+            questions:[],
             question: '',
             answerOptions: [],
             selectedOption: ''
@@ -20,15 +22,18 @@ export default class Survey extends Component {
 
     //executes before anything renders on screen
     componentDidMount() {
-        this.setState({
-            question: 'My First Question',
-            answerOptions: [
-                'Option A',
-                'Option B',
-                'Option C',
-                'Option D'
-            ]
-        })
+        axios.get('http://localhost:5000/questions')
+            .then(response => {
+                if (response.data.length > 0) {
+                    this.setState({
+                        questions: response.data.map(question => question.question)
+                    })
+                }
+            })
+        
+        
+
+
     }
 
     onSelectOption(e) {
@@ -36,10 +41,15 @@ export default class Survey extends Component {
             selectedOption: e.target.value
         })
 
-        console.log('calculate stuff');
-        window.location = '/results';
+        
     }
     
+    onSubmit(e) {
+        console.log('calculate stuff');
+        window.location = '/results';
+
+    }
+
     render() {
         return (
             <div>
