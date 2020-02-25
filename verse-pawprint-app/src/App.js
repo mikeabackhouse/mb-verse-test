@@ -8,12 +8,14 @@ import Survey from "./components/survey.component";
 import logo from './logo.svg';
 import './App.css';
 
+
+
 function App() {
   return (
     <Router>
       <div className="container">
         <Route path="/" exact component={Introduction} />
-        <Route path="/survey" exact component={Survey} />
+        <Route path="/survey" component={Survey} />
       </div>
     </Router>
   );

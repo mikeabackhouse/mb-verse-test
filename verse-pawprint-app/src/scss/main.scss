@@ -1,0 +1,45 @@
+$theme-colors: (
+    primary: #48B07A,
+    body-bg: #ddd
+);
+
+@import '~bootstrap/scss/bootstrap.scss';
+
+.App {
+    text-align: center;
+  }
+  
+
+body {
+    
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    color: #000000;
+}
+
+.introText {
+
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+
+}
+
+.introHeader {
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
+    font-weight: bold;
+    margin: 20 10;
+}
+
+.introImage {
+    text-align: center;
+    width: 100%;
+    height: auto;
+}
+
+.introImageContainer {
+    margin-top: 100;
+}
